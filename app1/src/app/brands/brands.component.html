@@ -1,0 +1,10 @@
+<section class="container">
+  <div class="row gy-3 my-3 ">
+    <div *ngFor="let brand of brandData " class="col-md-3">
+      <div class="rounded shadows p-2 border border-scandary ">
+        <img class="w-100"  [src]="brand.image" [alt]="brand.name">
+        <p class="text-center ">{{brand.name}}</p>
+      </div>
+    </div>
+  </div>
+</section>

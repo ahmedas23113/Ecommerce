@@ -1,0 +1,36 @@
+<div class="container">
+
+  <div class="w-75 mx-auto my-2">
+    <input [(ngModel)]="term" type="text" placeholder="Search By Name" class="form-control mt-5">
+    
+  </div>
+  <div class="row gy-4 py-5  ">
+    <div *ngFor="let item of productsList|search:term" class="col-md-3 ">
+
+      <div class="product px-2  rounded"> 
+        <a [routerLink]="['/productDetails', item._id]" >
+        <img [src]="item.imageCover" class="w-100" alt="">
+        <span class="text-main fw-bold">{{item.category.name}}</span>
+        <h3 class="fs-5">{{item.title|seemore:2}}</h3>
+        <div class="d-flex justify-content-between ">
+          <span class="fw-bold ">
+              {{item.price}}EGP
+          </span>
+
+          <span>
+         
+            <i class="fa-solid fa-star rating-color"></i>
+            {{item.ratingsAverage}}
+           
+            <i (click)="wishFav( item._id)" class="fa-regular fa-heart ms-1"></i>
+          </span>
+        </div>
+      </a>
+      <div class="my-2">
+        <button (click)="addMyCart(item._id)" class="btn bg-main text-white w-100">+Add</button>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</div>

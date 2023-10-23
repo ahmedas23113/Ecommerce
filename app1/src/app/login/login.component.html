@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="w-75 mx-auto py-5">
+    <h2>Login Now:</h2>
+    <form [formGroup]="loginForm" >
+    <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+<div>
+  <label for="email">Email</label>
+  <input type="email" formControlName="email" class="form-control" id="email">
+  <div *ngIf="loginForm.get('email')?.errors&& loginForm.get('email')?.touched" class="alert alert-danger">
+    <p *ngIf="loginForm.get('email')?.getError('required')">Email Is Required</p>
+    <p *ngIf="loginForm.get('email')?.getError('email')">Email Not valid</p>
+  </div>
+</div>
+<div>
+  <label for="password">Password</label>
+  <input type="password" formControlName="password" class="form-control" id="password">
+  <div *ngIf="loginForm.get('password')?.errors&& loginForm.get('password')?.touched" class="alert alert-danger">
+    <p *ngIf="loginForm.get('password')?.getError('required')">Password Is Required</p>
+    <p *ngIf="loginForm.get('password')?.getError('pattern')">Password Should Have A A @# and 123 </p>
+  </div>
+</div>
+<button *ngIf="isLoud==false" [disabled]="loginForm.invalid" (click)="sendData(loginForm)" class="btn bg-main text-white my-2 ">Login</button>
+<button   *ngIf="isLoud==true"  class="btn bg-main text-white my-2 "><i class="fa-solid fa-spinner fa-spin"></i></button>
+    </form>
+    <div>
+      <a routerLink="/forgetPassword">
+        <p class=" fs-bolder text-dark ">Forget your password ?</p>
+      </a>
+    </div>
+  </div>
+</div>
+

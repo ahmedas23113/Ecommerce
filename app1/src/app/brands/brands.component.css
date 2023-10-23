@@ -1,0 +1,9 @@
+.rounded
+{
+border-radius: .625rem;
+}
+.shadows:hover {
+  box-shadow: 1px 1px 10px #4fa74f;
+  transition: all ;
+  cursor: pointer;
+}

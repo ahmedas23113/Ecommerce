@@ -1,0 +1,27 @@
+<section class="w-75 mx-auto  p-3">
+  <form [formGroup]="shoppingForm">
+    <div>
+      <label for="details">Details</label>
+      <input formControlName="details" type="text" id="details" class="form-control">
+      <div *ngIf="shoppingForm.get('details')?.errors&& shoppingForm.get('details')?.touched" class="alert alert-danger">
+        <p *ngIf="shoppingForm.get('details')?.getError('required')">Details Is Required</p>
+        <p *ngIf="shoppingForm.get('details')?.getError('minlength')">Details Min 3</p>
+        <p *ngIf="shoppingForm.get('details')?.getError('maxlength')">Details Max 20</p>
+      </div>
+    </div>
+    <div>
+      <label for="phone">Phone</label>
+      <input formControlName="phone" type="tel" id="phone" class="form-control">
+      <div *ngIf="shoppingForm.get('phone')?.errors&& shoppingForm.get('phone')?.touched" class="alert alert-danger">
+        <p *ngIf="shoppingForm.get('phone')?.getError('required')">phone Is Required</p>
+        <p *ngIf="shoppingForm.get('phone')?.getError('pattern')">Phone should start (010,011,012,015...) </p>
+      </div>
+    </div>
+    <div>
+      <label for="city">City</label>
+      <input formControlName="city" type="text" id="city" class="form-control">
+    </div> 
+    <button (click)="payment(shoppingForm)" class="btn btn-info w-100 mt-2"  > Pay now</button>
+  </form>
+
+</section>

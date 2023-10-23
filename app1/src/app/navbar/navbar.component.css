@@ -1,0 +1,8 @@
+.nav-item i
+{
+margin: 0px .3125rem;
+font-size: 1.25rem;
+}
+.nav-item{
+  text-transform: capitalize; 
+}
